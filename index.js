@@ -3,12 +3,11 @@ const { Client } = require('pg')
 const app = express()
 
 const client = new Client({
-    host: 'localhost',
-    port: '5432',
-    user: 'postgres',
-    password: 'postgres',
-    database: 'postgres'
-
+    host: process.env.host,
+    port: process.env.port,
+    user: process.env.user,
+    password: process.env.pwd,
+    database: process.env.database
 })
 
 const connectDB = async () => {
