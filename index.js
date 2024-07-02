@@ -1,15 +1,8 @@
-// Passo 1: Crie um array com alguns números
-const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const express = require('express')
+const app = express()
 
-function filtrarPares(arr) {
-  const pares = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 0) {
-      pares.push(arr[i]);
-    }
-  }
-  return pares;
-}
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
 
-const numerosPares = filtrarPares(numeros);
-console.log(numerosPares);
+app.listen(3000)
