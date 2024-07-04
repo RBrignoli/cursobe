@@ -4,6 +4,7 @@ const userController = require("../controladores/userController")
 
 
 router.get("/", userController.listUsers);
+router.get("/setup", userController.setup);
 
 
 module.exports = router;
