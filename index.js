@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
 const { connectDB } = require('./db')
+const usersRoute = require("./rotas/user");
+
   
 connectDB();
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+app.use("/users", usersRoute);
 
 app.listen(3000)
