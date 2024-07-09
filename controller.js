@@ -1,4 +1,4 @@
-const client = require('./db')
+const { client } = require('./db')
 
 
 const listUsers = async (req, res) => {
