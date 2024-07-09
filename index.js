@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
 const { connectDB } = require('./db')
+const rotas = require("./rotas");
+
   
 connectDB();
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+app.use("/usuarios", rotas);
 
 app.listen(3000)
