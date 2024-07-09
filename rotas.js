@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controladores/userController")
+const controlador = require("./controller")
+const setup = require("./db")
 
 
-router.get("/", userController.listUsers);
-router.get("/setup", userController.setup);
+router.get("/", controlador.listUsers);
+router.get("/setup", setup);
 
 
 module.exports = router;
