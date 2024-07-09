@@ -6,6 +6,6 @@ const rotas = require("./rotas");
   
 connectDB();
 
-app.use("/users", rotas);
+app.use("/usuarios", rotas);
 
 app.listen(3000)
