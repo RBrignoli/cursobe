@@ -33,7 +33,7 @@ const setup = async (req, res) => {
 const drop = async (req, res) => {
     try {   
         const data = await client.query('DROP TABLE usuarios')
-        res.status(200).json({msg: 'table created'});
+        res.status(200).json({msg: 'table deletada'});
     } catch (err) {
         console.error('Error executing query', err);
         res.status(500)
@@ -41,4 +41,4 @@ const drop = async (req, res) => {
 };
 
 
-module.exports = { connectDB, setup, client }
+module.exports = { connectDB, setup, client, drop }

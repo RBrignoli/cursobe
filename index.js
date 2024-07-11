@@ -8,4 +8,5 @@ connectDB();
 
 app.use("/usuarios", rotas);
 
+
 app.listen(3000)
