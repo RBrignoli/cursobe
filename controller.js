@@ -1,4 +1,6 @@
-const {client} = require('./db')
+const { client } = require('./db')
+const bycryptjs = require("bcryptjs"); 
+
 
 
 const listUsers = async (req, res) => {
@@ -29,9 +31,11 @@ const getUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password } = req.body; 
+        const hashedPassword = await bycryptjs.hashSync(password, 10);
+
         const sql = `INSERT INTO usuarios (name, email, password) VALUES ($1, $2, $3) RETURNING *`
-        const data = await client.query(sql, [name, email, password]);
+        const data = await client.query(sql, [name, email, hashedPassword]);
         res.status(201).json({msg: 'User created successfully', user: data.rows[0]});
     } catch (err) {
         console.error('Error executing query', err);
